@@ -8,6 +8,14 @@ https://www.instructables.com/id/RaspberryPi-and-NodeMCUesp8266-MQTT/
 https://tttapa.github.io/ESP8266/Chap07%20-%20Wi-Fi%20Connections.html
 
 
+================================
+#Defining PWM
+motor1GPIO = GPIO.PWM(XX, 100)
+motor2GPIO = GPIO.PWM(YY, 100)
+dc = 50   # set the speed here as a % of the full speed 
+motor1GPIO.start(dc)
+motor2GPIO.start(dc)
+===============================
 #!/usr/bin/env python2.7  
 
 import RPi.GPIO as GPIO 
