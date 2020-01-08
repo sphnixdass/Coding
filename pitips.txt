@@ -1,3 +1,39 @@
-
-
 LD_PRELOAD=/usr/lib/arm-linux-gnueabihf/libatomic.so.1.2.0 python3
+
+
+https://www.instructables.com/id/Raspberry-Pi-Talking-to-ESP8266-Using-MQTT/
+https://dronebotworkshop.com/dc-motors-l298n-h-bridge/
+https://openhomeautomation.net/connect-esp8266-raspberry-pi
+https://www.instructables.com/id/RaspberryPi-and-NodeMCUesp8266-MQTT/
+https://tttapa.github.io/ESP8266/Chap07%20-%20Wi-Fi%20Connections.html
+
+
+#!/usr/bin/env python2.7  
+
+import RPi.GPIO as GPIO 
+from time import sleep  
+      
+GPIO.setmode(GPIO.BCM)  
+      
+GPIO.setup(25, GPIO.OUT)
+
+fan = GPIO.PWM(25, 100)  
+print "start"  
+fan.start(0) 
+             
+sleep (5)  
+print "Run 100%"   
+fan.ChangeDutyCycle(100)
+
+sleep (5)
+print "Run 50%" 
+fan.ChangeDutyCycle(50)
+
+sleep (5)
+print "Run 25%" 
+fan.ChangeDutyCycle(25)
+
+sleep(5)
+print "Stop"
+fan.stop()     
+GPIO.cleanup()
